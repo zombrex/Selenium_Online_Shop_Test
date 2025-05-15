@@ -52,6 +52,8 @@ class Cart_page(Base):
 
 
 
-    def product_confirm(self):
+    def product_confirm(self,cat_item_title):
         self.get_current_url()
+        self.assert_price()
+        self.assert_item_title(cat_item_title)
         self.click_checkout_button()

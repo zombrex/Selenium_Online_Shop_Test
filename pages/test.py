@@ -13,9 +13,16 @@ driver.get(url)
 time.sleep(10)
 item_title = driver.find_element(By.XPATH, "//div[@class='item-title']//span").text
 cart = "//div[@class='wrap_icon inner-table-block top_basket']//i"
+dropdown = "//div[@class='dropdown-select']"
+dropdown_filters = "//div[@class='dropdown-select__list-item font_xs']"
+driver.find_element(By.XPATH, dropdown).click()
+time.sleep(2)
+driver.find_element(By.XPATH, dropdown_filters).click()
+time.sleep(2)
+
 #driver.find_element(By.XPATH, cart).click()
 #total_price = "//div[@class='basket-coupon-block-total-price-current']"
 #get_total_price = driver.find_element(By.XPATH, total_price).text
 #numbers = ''.join(c if c.isdigit() else '' for c in get_total_price)
-print(item_title)
+#print(item_title)
 time.sleep(2)
