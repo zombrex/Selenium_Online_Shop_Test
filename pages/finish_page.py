@@ -14,8 +14,11 @@ class Finish_page(Base):
 
 
     # Locators
+    finish_text = "//h1[@id='pagetitle']"
 
     # Getters
+    def get_finish_text(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.finish_text)))
 
     # Actions
 
@@ -24,6 +27,7 @@ class Finish_page(Base):
     def finish(self):
         self.get_current_url()
         time.sleep(5)
-# <h1 id="pagetitle">Заказ сформирован</h1>
-        self.assert_url('https://www.saucedemo.com/checkout-complete.html')
         self.get_screenshot()
+        self.assert_word(self.get_finish_text(), "Заказ сформирован")
+
+

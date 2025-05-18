@@ -17,7 +17,9 @@ class Order_page(Base):
     full_name = "//input[@name='ORDER_PROP_1']"
     pref_connection = "//input[@name='ORDER_PROP_20']"
     phone_number = "//input[@name='ORDER_PROP_3']"
-    continue_button = "//a[@class='btn btn-default btn-lg btn-order-save has-ripple']"
+    client_button = "//*[@id='bx-soa-properties']/div[4]/div[3]/div"
+    continue_button = "//*[@id='bx-soa-total']/div[2]/div[1]/div[7]/a"
+
 
     # Getters
 
@@ -32,6 +34,9 @@ class Order_page(Base):
 
     def get_continue_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.continue_button)))
+
+    def get_client_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.client_button)))
 
     # Actions
 
@@ -51,11 +56,17 @@ class Order_page(Base):
         self.get_continue_button().click()
         print("Click Continue Button")
 
+    def click_client_button(self):
+        self.get_client_button().click()
+        print("Click Client Button")
+
     # Methods
 
     def input_information(self):
         self.get_current_url()
-        self.input_full_name('Ivan')
-        self.input_phone_number('Ivanov')
+        self.input_full_name('')
+        self.input_phone_number('')
         self.input_pref_connection('Telegram')
+
+        self.click_client_button()
         self.click_continue_button()

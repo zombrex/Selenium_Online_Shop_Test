@@ -4,8 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 from base.base_class import Base
-from pages.main_page import Main_page
-
 
 class Login_page(Base):
 
@@ -25,7 +23,6 @@ class Login_page(Base):
 
 
     # Getters
-
     def get_user_name(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name)))
 
@@ -42,7 +39,6 @@ class Login_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_cabinet)))
 
     # Actions
-
     def input_user_name(self, user_name):
         self.get_user_name().send_keys(user_name)
         print("Input Username")
@@ -60,12 +56,12 @@ class Login_page(Base):
         print("Click Link Cabinet")
 
     # Methods
-
+    # Авторизация и проверка входа в кабинет
     def authorization(self):
         self.driver.get(self.url)
         self.get_current_url()
         self.click_link_cabinet()
-        self.input_user_name('isupovilya@gmail.com')
+        self.input_user_name('zombrex@vk.com')
         self.input_password('zombrex66')
         self.click_login_button()
         time.sleep(2)
