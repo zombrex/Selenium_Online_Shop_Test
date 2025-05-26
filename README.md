@@ -1,4 +1,4 @@
-Тест на Python с использованием библиотеки Selenium.
+Тест на Python с использованием библиотеки Selenium (Python). PageObject модель.
 Интернет магазин mixpcshop.ru
 Видео с работой теста: https://disk.yandex.ru/i/-zaSnWfuR_Pg5w
 
