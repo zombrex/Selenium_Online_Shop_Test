@@ -62,7 +62,7 @@ class Login_page(Base):
         self.get_current_url()
         self.click_link_cabinet()
         self.input_user_name('zombrex@vk.com')
-        self.input_password('zombrex66')
+        self.input_password('********')
         self.click_login_button()
         time.sleep(2)
         print(self.get_main_word().text)
